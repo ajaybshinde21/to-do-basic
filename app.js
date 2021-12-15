@@ -1,7 +1,19 @@
+document.addEventListener("click",removeTaskNode);
+function removeTaskNode(e){
+  console.log(e);
+  if(e.target.className == "fas fa-times fa-xs"){
+    console.log(e);
+    e.target.parentElement.parentElement.remove();
+  }else if(e.target.className == "btn btn-black"){
+    console.log(e);
+    removeTaskFromList(e);
+  }
+}
+
 // remove all task
-const clearTaskBtnNode = document.querySelector('.btn-black');
-console.log(clearTaskBtnNode);
-clearTaskBtnNode.addEventListener("click",removeTaskFromList);
+// const clearTaskBtnNode = document.querySelector('.btn-black');
+// console.log(clearTaskBtnNode);
+// clearTaskBtnNode.addEventListener("click",removeTaskFromList);
 
 
 function removeTaskFromList(e){
@@ -18,16 +30,17 @@ function removeTaskFromList(e){
   //   e.remove;
   }
 
-// remove one task
-let removeBtns = document.querySelectorAll("span");
-for(let i = 0;i < removeBtns.length;i++){
-  removeBtns[i].addEventListener("click",removeElement);
-}
+// // remove one task
 
-function removeElement(e){
-  e.preventDefault();
-  console.log(e.target.parentElement.parentElement.remove());
-}
+// let removeBtns = document.querySelectorAll("span");
+// for(let i = 0;i < removeBtns.length;i++){
+//   removeBtns[i].addEventListener("click",removeElement);
+// }
+
+// function removeElement(e){
+//   e.preventDefault();
+//   console.log(e.target.parentElement.parentElement.remove());
+// }
 
 // add task by clicking "add task" btn
 
@@ -59,9 +72,7 @@ function addElement(e){
   removeBtns = document.querySelectorAll("span");
   document.querySelector("#input-task").value = "";
 
-for(let i = 0;i < removeBtns.length;i++){
-  removeBtns[i].addEventListener("click",removeElement);
-}
+
 }
 function doesTaskExist(taskTitle){
   // 
