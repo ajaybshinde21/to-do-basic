@@ -1,0 +1,83 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  box-shadow:1px 1px 4px rgb(148, 148, 148);
+
+  padding:1.7rem;
+  font-family: monospace, sans-serif;
+}
+header > *{
+  margin-bottom: 1rem;
+}
+header h1{
+font-weight: 100;
+}
+header label{
+  color:rgb(155, 155, 155);
+  font-size: 10px;
+}
+#input-task{
+  display: block;
+  width: 100%;
+  border:0;
+  border-bottom: 1px solid #333;
+  padding: 0.8rem;
+  padding-left: 0;
+  font-size: 1rem;
+}
+#input-task:focus-visible{
+  outline: none;
+  border-bottom: 1px solid rgb(71, 143, 148);
+  
+}
+.btn{
+  color:white;
+  background-color: #26a69a;
+  display: inline-block;
+  padding:0.5rem 1.3rem;
+  border:0;
+  border-radius: 2px;
+  box-shadow: 0 0px 3px #333;
+  margin-top: 1rem;
+}
+.btn:hover{
+  background-color: #1f8076;
+  padding-bottom: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in ;
+}
+section {
+  margin-top:2rem;
+}
+
+ul{
+  border:0.5px solid #ccc;
+  border-radius: 3px;
+  list-style:none;
+  margin-top: 1rem;
+}
+
+.list-item{
+  padding: 0.7rem 1.3rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item span{
+  color: darkorange;
+}
+span:hover{
+  cursor: pointer;
+}
+.btn-black{
+  margin-top: 1rem;
+  background-color: #333;
+}
