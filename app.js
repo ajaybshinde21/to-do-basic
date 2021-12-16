@@ -1,11 +1,38 @@
+window.addEventListener("load",showList);
+function showList(){
+  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  if(tasks !== null){
+    let tasksCount = tasks.length;
+    const taskListNode = document.querySelector("ul");
+    for(let i = 0; i < tasksCount ;i++){
+      const task = document.createElement("li");
+      task.classList.add("list-item");
+      task.appendChild(document.createTextNode(tasks[i]));
+      const span = document.createElement("span");
+      span.innerHTML = '<i class="fas fa-times fa-xs"></i>';
+      task.appendChild(span);
+      taskListNode.appendChild(task);
+      removeBtns = document.querySelectorAll("span");
+    }
+  }
+}
 document.addEventListener("click",removeTaskNode);
 function removeTaskNode(e){
   console.log(e);
   if(e.target.className == "fas fa-times fa-xs"){
     console.log(e);
+
+    // remove from localstorage"
+    let tasks = JSON.parse(localStorage.getItem("tasks"));
+    let taskTitle = e.target.parentElement.parentElement.innerText;
+    console.log("task title "+taskTitle);
+    let deleteIndex = tasks.indexOf(taskTitle);
+    tasks.splice(deleteIndex,1);
+    localStorage.setItem("tasks",JSON.stringify(tasks));
     e.target.parentElement.parentElement.remove();
   }else if(e.target.className == "btn btn-black"){
     console.log(e);
+    
     removeTaskFromList(e);
   }
 }
@@ -25,6 +52,7 @@ function removeTaskFromList(e){
 
 
   }
+  localStorage.clear();
   // let taskNodesArr = Array.from(tasksNodes);
   // taskNodesArr.forEach(function(e){
   //   e.remove;
@@ -61,7 +89,6 @@ function addElement(e){
     alert("task exists. cannot add");
     return;
   }
-
   const task = document.createElement("li");
   task.classList.add("list-item");
   task.appendChild(document.createTextNode(taskTitle));
@@ -71,8 +98,15 @@ function addElement(e){
   taskListNode.appendChild(task);
   removeBtns = document.querySelectorAll("span");
   document.querySelector("#input-task").value = "";
-
-
+  let tasks;
+  if(localStorage.getItem("tasks") === null){
+    tasks = [];
+  }else{
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  tasks.push(taskTitle);
+  localStorage.setItem("tasks",JSON.stringify(tasks));
+  
 }
 function doesTaskExist(taskTitle){
   // 

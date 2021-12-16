@@ -11,13 +11,13 @@
   box-shadow:1px 1px 4px rgb(148, 148, 148);
 
   padding:1.7rem;
-  font-family: monospace, sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 header > *{
   margin-bottom: 1rem;
 }
 header h1{
-font-weight: 100;
+font-weight: 300;
 }
 header label{
   color:rgb(155, 155, 155);
